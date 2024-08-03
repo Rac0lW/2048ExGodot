@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0iotvnx0cr7h"]
+
+[ext_resource type="Script" path="res://block.gd" id="1_swyxo"]
+[ext_resource type="Shader" path="res://Scenes/block.gdshader" id="2_f07hk"]
+[ext_resource type="Texture2D" uid="uid://cyedku21y1thi" path="res://Assets/images/white128.png" id="3_eh3gl"]
+[ext_resource type="FontFile" uid="uid://dy7kdgjt43bvs" path="res://Assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="3_ju6aj"]
+[ext_resource type="AudioStream" uid="uid://ow18ptx727sh" path="res://Assets/sfx/pop_0.mp3" id="5_4554n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gc7jx"]
+shader = ExtResource("2_f07hk")
+shader_parameter/f = null
+
+[node name="Block" type="Node2D"]
+script = ExtResource("1_swyxo")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_gc7jx")
+position = Vector2(64, 64)
+texture = ExtResource("3_eh3gl")
+
+[node name="ColorRect" type="ColorRect" parent="Icon"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -120.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(56, 56)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 104.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ju6aj")
+theme_override_font_sizes/font_size = 64
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4554n")

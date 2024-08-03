@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmr7r7b5pfjv8"]
+
+[ext_resource type="Script" path="res://Scenes/initSettings.gd" id="1_mka02"]
+[ext_resource type="Script" path="res://Scenes/Input.gd" id="2_8anyh"]
+[ext_resource type="Script" path="res://Scenes/BlockManager.gd" id="3_gpw54"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_mka02")
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("2_8anyh")
+
+[node name="BlockManager" type="Node2D" parent="."]
+script = ExtResource("3_gpw54")
+
+[node name="InitSettings" type="Node" parent="."]
+script = ExtResource("1_mka02")
