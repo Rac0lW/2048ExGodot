@@ -27,7 +27,7 @@ one_shot = true
 
 [node name="tiles" parent="." instance=ExtResource("5_1tju8")]
 z_index = -1
-position = Vector2(255, 256)
+position = Vector2(256, 256)
 
 [connection signal="gen" from="Input" to="BlockManager" method="_on_input_gen"]
 [connection signal="timeout" from="Input/Timer" to="Input" method="_on_timer_timeout"]

@@ -15,18 +15,27 @@ var gridTable = Dictionary()
 
 
 func _ready():
+	valueInitial()
+	genStart()
+	
+func _process(delta):
+	checkisLost()
+	
+func checkisLost():
+	if get_child_count() >= 16:
+		pass
+	#TODO lose animation
+	
+func valueInitial():
 	rows = init_settings.rows
 	cols = init_settings.cols
 	width = init_settings.width
-	genStart()
-	
-	
+
 func genStart():
 	generateRandomBlock()
 	generateRandomBlock()
 	generateRandomBlock()
 	generateRandomBlock()
-	
 	
 func generateRandomBlock():
 	var pos = Vector2(randi_range(0, rows - 1), randi_range(0, cols - 1))
@@ -41,7 +50,6 @@ func generateBlock(pos: Vector2):
 	add_child(blockInstance)
 	#TODO add some animation for the generation
 	
-
 func _on_input_gen():
 	l_timer.start()
 	#await timer.timeout

@@ -9,6 +9,7 @@ var isDie:bool = false
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 #@onready var label = $Label
 @onready var label = $Icon/ColorRect/Label
+@onready var audio_stream_player_2d_2 = $AudioStreamPlayer2D2
 
 
 #@onready var label = $Label
@@ -35,7 +36,7 @@ func setGlobalPostion(pos, width):
 		position = pos * width
 		return
 	var tween = get_tree().create_tween()
-	audio_stream_player_2d.play()
+	audio_stream_player_2d_2.play()
 	tween.tween_property(self, "position", pos * width, 0.5).set_trans(Tween.TRANS_QUAD)
 	if isDie:
 		Delete()
@@ -48,15 +49,18 @@ func mergeValue():
 	label.text = str(value)
 	var temp = 1 - float(value) / 2048. 
 	color_rect.set_color(Color(temp, temp, temp, 1))
+	mergeAnimationPlay()
 	
+
+func mergeAnimationPlay():
 	if not is_inside_tree():
 		return
 	var tween = get_tree().create_tween()
-	tween.tween_property(icon, "scale", Vector2(1.2, 1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(color_rect, "scale", Vector2(1.1, 1.1), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(color_rect, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(icon, "scale", Vector2(1.0, 1.0), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	
+	audio_stream_player_2d.play()
+	tween.tween_property(icon, "scale", Vector2(1.2, 1.2), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(color_rect, "scale", Vector2(1.1, 1.1), 0.07).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(color_rect, "scale", Vector2(1.0, 1.0), 0.07).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(icon, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
 func erase():
 	queue_free()
