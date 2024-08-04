@@ -7,20 +7,24 @@ var isDie:bool = false
 @onready var icon = $Icon
 @onready var color_rect = $Icon/ColorRect
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+#@onready var label = $Label
+@onready var label = $Icon/ColorRect/Label
 
-@onready var label = $Label
+
+#@onready var label = $Label
+
+func _ready():
+	var temp = 1 - float(value) / 2048. 
+	var rtemp = 1 - temp
+	color_rect.set_color(Color(temp, temp, temp, 1))
+	label.set("theme_override_colors/font_color", Color(rtemp, rtemp, rtemp, 1.0))
+	
 
 func readyToDie():
 	isDie = true
 
-func New(pos):
-	pass
-	
 func Delete():
 	erase()
-
-func movePosition(from, to, width):
-	pass
 
 func getPos() -> Vector2:
 	return gridPosition
@@ -35,17 +39,16 @@ func setGlobalPostion(pos, width):
 	tween.tween_property(self, "position", pos * width, 0.5).set_trans(Tween.TRANS_QUAD)
 	if isDie:
 		Delete()
-	
-func setDefault():
-	pass
-
+		
 func getValue() -> int:
 	return value
 	
 func mergeValue():
 	value += value
 	label.text = str(value)
-	#TODO use shader to make it, value is named "intensity" 
+	var temp = 1 - float(value) / 2048. 
+	color_rect.set_color(Color(temp, temp, temp, 1))
+	
 	if not is_inside_tree():
 		return
 	var tween = get_tree().create_tween()
