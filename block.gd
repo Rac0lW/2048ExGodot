@@ -45,12 +45,19 @@ func getValue() -> int:
 	return value
 	
 func mergeValue():
+	VCFChange()
+	mergeAnimationPlay()
+	
+func VCFChange():
 	value += value
 	label.text = str(value)
 	var temp = 1 - float(value) / 2048. 
+	var rtemp = - temp
 	color_rect.set_color(Color(temp, temp, temp, 1))
-	mergeAnimationPlay()
+	label.set("theme_override_colors/font_color", Color(rtemp, rtemp, rtemp, 1.0))
 	
+	if value == 1024 or value == 2048:
+		label.set("theme_override_font_sizes/font_size", 48)
 
 func mergeAnimationPlay():
 	if not is_inside_tree():

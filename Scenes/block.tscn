@@ -21,6 +21,7 @@ position = Vector2(64, 64)
 texture = ExtResource("3_eh3gl")
 
 [node name="ColorRect" type="ColorRect" parent="Icon"]
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
