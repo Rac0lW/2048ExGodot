@@ -4,5 +4,10 @@
 
 [node name="tiles" type="Node2D"]
 
-[node name="Gird1616" type="Sprite2D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.441406, 0.441406, 0.441406, 1)
+self_modulate = Color(0.7, 0.322, 0.322, 0.262745)
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("1_7g0ti")

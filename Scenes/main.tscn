@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmr7r7b5pfjv8"]
+[gd_scene load_steps=7 format=3 uid="uid://cmr7r7b5pfjv8"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_gphku"]
 [ext_resource type="Script" path="res://Scenes/initSettings.gd" id="1_mka02"]
 [ext_resource type="Script" path="res://Scenes/Input.gd" id="2_8anyh"]
 [ext_resource type="Script" path="res://Scenes/BlockManager.gd" id="3_gpw54"]
 [ext_resource type="PackedScene" uid="uid://kj11j3o41s0v" path="res://Scenes/tiles.tscn" id="5_1tju8"]
+[ext_resource type="PackedScene" uid="uid://rhbs4ssfwhdw" path="res://bg.tscn" id="6_mkf22"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gphku")
@@ -16,6 +17,7 @@ script = ExtResource("2_8anyh")
 wait_time = 0.4
 
 [node name="BlockManager" type="Node2D" parent="." groups=["bm"]]
+position = Vector2(384, 96)
 script = ExtResource("3_gpw54")
 
 [node name="InitSettings" type="Node" parent="."]
@@ -27,7 +29,13 @@ one_shot = true
 
 [node name="tiles" parent="." instance=ExtResource("5_1tju8")]
 z_index = -1
-position = Vector2(256, 256)
+texture_filter = 1
+position = Vector2(384, 96)
+
+[node name="Node2D" parent="." instance=ExtResource("6_mkf22")]
+z_index = -99
+texture_filter = 1
+position = Vector2(640, 360)
 
 [connection signal="gen" from="Input" to="BlockManager" method="_on_input_gen"]
 [connection signal="timeout" from="Input/Timer" to="Input" method="_on_timer_timeout"]
