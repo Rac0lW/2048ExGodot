@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmr7r7b5pfjv8"]
+[gd_scene load_steps=8 format=3 uid="uid://cmr7r7b5pfjv8"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_gphku"]
 [ext_resource type="Script" path="res://Scenes/initSettings.gd" id="1_mka02"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/BlockManager.gd" id="3_gpw54"]
 [ext_resource type="PackedScene" uid="uid://kj11j3o41s0v" path="res://Scenes/tiles.tscn" id="5_1tju8"]
 [ext_resource type="PackedScene" uid="uid://rhbs4ssfwhdw" path="res://bg.tscn" id="6_mkf22"]
+[ext_resource type="FontFile" uid="uid://dy7kdgjt43bvs" path="res://Assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="7_1taft"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gphku")
@@ -37,6 +38,149 @@ z_index = -99
 texture_filter = 1
 position = Vector2(640, 360)
 
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="2048EX" type="Label" parent="UI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_right = 300.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00389, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.631373, 0.823529, 1, 1)
+theme_override_colors/font_outline_color = Color(0.282353, 0.658824, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("7_1taft")
+theme_override_font_sizes/font_size = 64
+text = "2048EX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mode" type="Label" parent="UI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 856.0
+offset_top = 8.0
+offset_right = 1257.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00389, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.631373, 0.823529, 1, 1)
+theme_override_colors/font_outline_color = Color(0.282353, 0.658824, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("7_1taft")
+theme_override_font_sizes/font_size = 64
+text = "Mode: Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 632.0
+offset_right = 753.0
+offset_bottom = 699.0
+tooltip_text = "Just restart the game..."
+theme_override_colors/font_color = Color(0.282353, 0.658824, 1, 1)
+theme_override_colors/font_hover_color = Color(0.996078, 0.996078, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0, 0.423529, 0.807843, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_1taft")
+theme_override_font_sizes/font_size = 48
+text = "Restart"
+
+[node name="QuitGame" type="Button" parent="UI"]
+offset_left = 968.0
+offset_top = 632.0
+offset_right = 1197.0
+offset_bottom = 699.0
+tooltip_text = "Just restart the game..."
+theme_override_colors/font_color = Color(0.282353, 0.658824, 1, 1)
+theme_override_colors/font_hover_color = Color(0.996078, 0.996078, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0, 0.423529, 0.807843, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_1taft")
+theme_override_font_sizes/font_size = 48
+text = "QuitGame
+"
+
+[node name="Cards" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 912.0
+offset_top = 96.0
+offset_right = 1256.0
+offset_bottom = 608.0
+
+[node name="Button" type="Button" parent="UI/Cards"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Button2" type="Button" parent="UI/Cards"]
+offset_left = 176.0
+offset_right = 256.0
+offset_bottom = 80.0
+
+[node name="Button3" type="Button" parent="UI/Cards"]
+offset_left = 88.0
+offset_right = 168.0
+offset_bottom = 80.0
+
+[node name="Button4" type="Button" parent="UI/Cards"]
+offset_left = 264.0
+offset_right = 344.0
+offset_bottom = 80.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Cards"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.211765)
+
+[node name="Desk" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 368.0
+offset_bottom = 608.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Desk"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.211765)
+
 [connection signal="gen" from="Input" to="BlockManager" method="_on_input_gen"]
 [connection signal="timeout" from="Input/Timer" to="Input" method="_on_timer_timeout"]
 [connection signal="timeout" from="LTimer" to="BlockManager" method="_on_timer_timeout"]
+[connection signal="pressed" from="UI/Restart" to="BlockManager" method="_on_check_button_pressed"]
+[connection signal="pressed" from="UI/QuitGame" to="." method="_on_quit_game_pressed"]

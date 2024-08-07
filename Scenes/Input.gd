@@ -65,7 +65,7 @@ func control():
 
 	
 
-func getLastEmptyBlock(t, dir):
+func getLastEmptyBlock(t, dir) -> Vector2:
 	var flag:Vector2 = t.getPos()
 	
 	if dir == RIGHT:

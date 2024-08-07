@@ -32,6 +32,9 @@ func valueInitial():
 	width = init_settings.width
 
 func genStart():
+	gen4RandomBlock()
+
+func gen4RandomBlock() -> void:
 	generateRandomBlock()
 	generateRandomBlock()
 	generateRandomBlock()
@@ -55,3 +58,19 @@ func _on_input_gen():
 	#await timer.timeout
 func _on_timer_timeout():
 	generateRandomBlock()
+
+func _on_check_button_pressed():
+	freeTable()
+	freeChildren()
+	restart()
+	print("Restart")
+
+func freeTable():
+	gridTable.clear()
+
+func freeChildren():
+	for i in get_children():
+		i.queue_free()
+
+func restart():
+	gen4RandomBlock()
