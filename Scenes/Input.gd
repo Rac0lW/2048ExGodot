@@ -60,10 +60,6 @@ func control():
 				t.setGlobalPostion(getLastEmptyBlock(t, dir), init_settings.width)
 				block_manager.gridTable[temp] = true
 			gen.emit()
-		
-		
-
-	
 
 func getLastEmptyBlock(t, dir) -> Vector2:
 	var flag:Vector2 = t.getPos()

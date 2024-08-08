@@ -11,7 +11,7 @@
 shader = ExtResource("2_f07hk")
 shader_parameter/f = null
 
-[node name="Block" type="Node2D"]
+[node name="Block" type="Node2D" groups=["block"]]
 script = ExtResource("1_swyxo")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -50,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.724026, 0.319159, 0.319159, 1)
+theme_override_colors/font_shadow_color = Color(0.0254211, 0.257167, 0.382813, 1)
 theme_override_fonts/font = ExtResource("3_ju6aj")
 theme_override_font_sizes/font_size = 64
 text = "2"

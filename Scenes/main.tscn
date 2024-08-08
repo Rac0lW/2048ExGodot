@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmr7r7b5pfjv8"]
+[gd_scene load_steps=9 format=3 uid="uid://cmr7r7b5pfjv8"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_gphku"]
 [ext_resource type="Script" path="res://Scenes/initSettings.gd" id="1_mka02"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kj11j3o41s0v" path="res://Scenes/tiles.tscn" id="5_1tju8"]
 [ext_resource type="PackedScene" uid="uid://rhbs4ssfwhdw" path="res://bg.tscn" id="6_mkf22"]
 [ext_resource type="FontFile" uid="uid://dy7kdgjt43bvs" path="res://Assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="7_1taft"]
+[ext_resource type="Script" path="res://Scenes/MouseController.gd" id="8_dtnjt"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gphku")
@@ -16,6 +17,9 @@ script = ExtResource("2_8anyh")
 
 [node name="Timer" type="Timer" parent="Input"]
 wait_time = 0.4
+
+[node name="MouseController" type="Node" parent="."]
+script = ExtResource("8_dtnjt")
 
 [node name="BlockManager" type="Node2D" parent="." groups=["bm"]]
 position = Vector2(384, 96)
@@ -54,19 +58,44 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_right = 300.0
-offset_bottom = 96.0
+offset_left = 16.0
+offset_top = -8.0
+offset_right = 352.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00389, 1)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.631373, 0.823529, 1, 1)
 theme_override_colors/font_outline_color = Color(0.282353, 0.658824, 1, 1)
-theme_override_constants/outline_size = 20
-theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("7_1taft")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 96
+text = "2048EX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2048EX2" type="Label" parent="UI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 912.0
+offset_top = -8.0
+offset_right = 1248.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00389, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.631373, 0.823529, 1, 1)
+theme_override_colors/font_outline_color = Color(0.282353, 0.658824, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("7_1taft")
+theme_override_font_sizes/font_size = 96
 text = "2048EX"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -79,10 +108,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 856.0
-offset_top = 8.0
-offset_right = 1257.0
-offset_bottom = 85.0
+offset_left = 16.0
+offset_top = 632.0
+offset_right = 417.0
+offset_bottom = 709.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00389, 1)
@@ -113,6 +142,7 @@ theme_override_font_sizes/font_size = 48
 text = "Restart"
 
 [node name="QuitGame" type="Button" parent="UI"]
+layout_mode = 0
 offset_left = 968.0
 offset_top = 632.0
 offset_right = 1197.0
@@ -127,6 +157,19 @@ theme_override_font_sizes/font_size = 48
 text = "QuitGame
 "
 
+[node name="Goal" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 48.0
+offset_right = 864.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(0.709804, 0.862745, 1, 1)
+theme_override_colors/font_outline_color = Color(0.211765, 0.545098, 0.847059, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_1taft")
+theme_override_font_sizes/font_size = 32
+text = "Current Goal: Reach 64 Point"
+
 [node name="Cards" type="Control" parent="UI"]
 anchors_preset = 0
 offset_left = 912.0
@@ -140,16 +183,19 @@ offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Button2" type="Button" parent="UI/Cards"]
+layout_mode = 0
 offset_left = 176.0
 offset_right = 256.0
 offset_bottom = 80.0
 
 [node name="Button3" type="Button" parent="UI/Cards"]
+layout_mode = 0
 offset_left = 88.0
 offset_right = 168.0
 offset_bottom = 80.0
 
 [node name="Button4" type="Button" parent="UI/Cards"]
+layout_mode = 0
 offset_left = 264.0
 offset_right = 344.0
 offset_bottom = 80.0

@@ -1,9 +1,7 @@
 extends Node2D
 class_name Block
 
-var value:int = 2
-var gridPosition:Vector2
-var isDie:bool = false
+
 @onready var icon = $Icon
 @onready var color_rect = $Icon/ColorRect
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
@@ -11,6 +9,11 @@ var isDie:bool = false
 @onready var label = $Icon/ColorRect/Label
 @onready var audio_stream_player_2d_2 = $AudioStreamPlayer2D2
 
+var isSelect:bool = false
+
+var value:int = 2
+var gridPosition:Vector2
+var isDie:bool = false
 
 #@onready var label = $Label
 
@@ -20,6 +23,9 @@ func _ready():
 	color_rect.set_color(Color(temp, temp, temp, 1))
 	label.set("theme_override_colors/font_color", Color(rtemp, rtemp, rtemp, 1.0))
 	
+func _process(delta):
+	if isSelect:
+		global_position = get_global_mouse_position()
 
 func readyToDie():
 	isDie = true
@@ -29,6 +35,11 @@ func Delete():
 
 func getPos() -> Vector2:
 	return gridPosition
+
+func isInRect(pos: Vector2) -> bool:
+	if icon.get_rect().has_point(pos - Vector2(64, 64)):
+		return true
+	return false
 
 func setGlobalPostion(pos, width):
 	gridPosition = pos
