@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name BlockManager
+
 @onready var main = $".."
 @onready var init_settings = $"../InitSettings"
 @onready var l_timer = $"../LTimer"
